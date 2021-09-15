@@ -1,0 +1,89 @@
+{
+    "name": "laravel/laravel",
+    "description": "The Laravel Framework.",
+    "keywords": ["framework", "laravel"],
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        "php": "^7.4|^8.0",
+        "filp/whoops": "^2.3",
+        "fruitcake/laravel-cors": "^1.0",
+        "guzzlehttp/guzzle": "^6.3",
+        "laravel/framework": "^8.0",
+        "laravel/ui": "^3.0",
+        "predis/predis": "^1.1",
+        "sfneal/actions": "^2.0",
+        "sfneal/address": "^1.0",
+        "sfneal/array-helpers": "^3.2",
+        "sfneal/aws-s3-helpers": "^1.0",
+        "sfneal/caching": "^2.0",
+        "sfneal/controllers": "^2.0",
+        "sfneal/crud-model-actions": ">=0.13",
+        "sfneal/healthy": "^1.0",
+        "sfneal/honeypot": "^1.0",
+        "sfneal/js-response-helpers": "^1.0.1",
+        "sfneal/laravel-helpers": "^2.4",
+        "sfneal/models": "^2.7",
+        "sfneal/observables": "^1.1",
+        "sfneal/post-office": "^1.0",
+        "sfneal/queueables": "^2.0",
+        "sfneal/string-helpers": "^1.2",
+        "sfneal/users": "^1.4",
+        "sfneal/view-models": "^3.0",
+        "spatie/laravel-backup": "^7.5",
+        "spatie/laravel-tail": "^4.2"
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.3",
+        "phpunit/phpunit": ">=7.0"
+    },
+    "autoload": {
+        "classmap": [
+            "database"
+        ],
+        "psr-4": {
+            "App\\" : "app/App/",
+            "Domain\\" : "app/Domain/",
+            "Support\\" : "app/Support/"
+        },
+        "files": [
+            "app/App/Helpers/_init.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "php artisan key:generate"
+        ],
+        "post-install-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postInstall",
+            "php artisan optimize"
+        ],
+        "post-update-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "php artisan optimize"
+        ],
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover",
+        "boot": "bash scripts/boot.sh",
+        "boot-upgrade": "bash scripts/boot.sh upgrade",
+        "boot-build": "bash scripts/boot.sh build",
+        "build": "bash scripts/build.sh prod",
+        "push": "bash scripts/push.sh",
+        "deploy": "bash scripts/deploy.sh",
+        "down": "docker compose down -v --remove-orphans",
+        "logs": "docker exec -it app tail -f storage/logs/laravel.log"
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true
+    }
+}

@@ -1,0 +1,35 @@
+language: php
+
+services:
+  - docker
+
+env:
+  global:
+    - PHP_COMPOSER_TAG="8.0-v1"
+    - PHP_LARAVEL_TAG="8.0-fpm-v2"
+    - secure: JrkYAjRbCoJo/J4Q8Mi4jI0Ov+6KDBZ8Zuqm4DZUeT2Dsig5dpTbyDWFnEMO8AMA75DTdQIfQdFBpSLUiCgmfQx9V3t2L/v6pTW0xKyNO7wwhnsyIkWPweGOAl76MPr2cNTGwDE1vs8OGG4llhZcUuNHtBAjvZGMnzP7qeFofyy65PVVkKjBHBiXR5aHIC4fPX9YhEZbDxrRcXfgUTDrdq1mnnJt1zKOZiEJdG7g3DkeGzy2xchnKmWc7t1p/WoQMbYsuDF2xU5+8Sqgzv/6h/O50Vdv0gS6ocaMiXdoAWXifcoiOyWt1Pw8/Z09UIZjOg/mUsi8NgD7SBJeILIKSHe6OFy7Xj2Bdq0uQ7TepiZVc0CJ9AoMFiHgZnzlssppZ4p+SZfd7hmc0W34zqV9sXmn0ceKg+B1LEnN8efTTqsxNbcZOalH/noejc8HA24U12ajdkA51wM5iPe8fE7s8AxXahHlVKhvLq3oSHoJ1TreuZUOwwwq4ddFjdf1X0gpejjwgQ7kd1Kk5xconbHevTdWte9Ak3QxYp2x831SiA2qaCVkcfNHo5wC9hmhbpnVHtSBagFnKlW16uett61t6LioXKqziw2JpM1DeFSqyfSMbaGqQZ4ojCX9+IlP71uPnikWE0MQ5WFRTvL0QPKQ/6Nkie1txDL8RuebRpE6JLc=
+    - secure: J/uMTjBNF1p4x+6Xc5w+arMFf4MLiIhDhv30z9ph1LXEOybv+IRKaLbkd+Euhy/+AD+0x458oVLsJwg//Rp8qh3N0BT8OtdviWw7veXikVJxLQzpkwcDiYmZq7YF7eV4pvirUlBH/3satV3n+eCveJKKphMnIDzKk3TzcjMzGToBskYNiScyXCyXjVxlwn7gen1JLNbANMApXfOddgUNXaVLv6c65CBCB5ahP5unyvhDsVvwYI1ymALRzVJbLjhnQlPRISkr0DlwEWbsQRMRRhJhtwxmG+yfvaYjIvHvzJfPhlG2hDRVyiQYKqs7xEcY+lRHhXKieoZc57x7PKb8hksK9ugCS48Tln2LZ0t2XnnC28pWnXUMGflDW+YetA/yFG9USUH3CUylOwYlRVU+Og0zJV6949wQhCh1t6udYTXVLvrVmr1eint/+xH426TB5gqFuPB7nILu+J3edMN4mQQTaaJPHfngJFw10IikhgLBYruf+MsziHIohlv1e8zRUFjlfT1ox1wlmle1ZLC5+f7S1zmnPm0epSd8bxZ65HAVq8/taxjWMA0svOUzrfZ+xD+RaioMYll+1wHqZqKKCOCY3tn1cyst3iRPieH9Anccx6UTlAe5fBLEPgXqVxDWMwqlYRlhSriPksYCk8zhKB1QHYewhqwfblmBWa0ad4E=
+
+php:
+  - 8.0
+
+before_script:
+  # Upgrade Docker to the latest version
+  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  - sudo apt-get update -y
+  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
+  - docker --version
+
+  # Increase memory limit & disable xdebug for speed improvements
+  - echo "memory_limit=4096M" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
+  - phpenv config-rm xdebug.ini
+
+  # Authenticate Docker Hub
+  - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
+
+script:
+  - composer build
+
+after_script:
+  - docker images -a --filter='dangling=false' --format '{{.Repository}}:{{.Tag}}\t{{.Size}}'
