@@ -25,9 +25,6 @@ use Illuminate\Routing\Middleware\ThrottleRequests;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-use PortalSite\Home\Middleware\AppVersionUpdateAlert;
-use PublicSite\Plans\Middleware\PlansCopyright;
-use PublicSite\Plans\Middleware\PlansDemo;
 use Sfneal\Honeypot\Middleware\HoneyPot;
 use Sfneal\Tracking\Middleware\TrackTrafficMiddleware;
 
@@ -61,7 +58,7 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middlewareGroups = [
-        // Global Middleare
+        // Global Middleware
         'web' => [
             EncryptCookies::class,
             AddQueuedCookiesToResponse::class,
@@ -77,15 +74,6 @@ class Kernel extends HttpKernel
         // Public Middleware
         'public' => [
             CookiesAccepted::class,
-        ],
-
-        // Portal Middleware
-        'alerts' => [
-            // Version update alert
-            AppVersionUpdateAlert::class,
-
-            // Beta version alert
-            //            BetaVersionAlert::class
         ],
 
         // API Middleware
@@ -115,8 +103,6 @@ class Kernel extends HttpKernel
         'verified' => EnsureEmailIsVerified::class,
 
         // PublicSite controller middleware
-        'plans-copyright' => PlansCopyright::class,
-        'plans-demo' => PlansDemo::class,
         'honeypot' => HoneyPot::class,
     ];
 

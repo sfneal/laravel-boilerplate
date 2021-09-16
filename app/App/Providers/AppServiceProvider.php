@@ -23,25 +23,7 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
 
         Schema::defaultStringLength(191);
-
-        // Log DB queries for
-        // todo: create helper function or package functionality
-        if (AppInfo::isEnvDevelopment() && env('DB_QUERY_LOGGING')) {
-            DB::listen(function ($query) {
-                // Don't log query if it contains an exclusion string
-                if (empty(array_filter(
-                    // todo: create config value
-                    explode(' ', env('DB_QUERY_LOGGING_EXCLUSIONS')),
-                    function ($string) use ($query) {
-                        if (inString($query->sql, $string)) {
-                            return true;
-                        }
-                    }
-                ))) {
-                    Log::channel('query')->info(json_encode([Str::replaceArray('?', $query->bindings, $query->sql), $query->time]));
-                }
-            });
-        }
+        
     }
 
     /**
