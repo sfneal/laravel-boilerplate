@@ -111,7 +111,6 @@ services:
       - staging=1
     depends_on:
       - webserver
-      - webserver
     restart: "no"
 
   # Docker in Docker
