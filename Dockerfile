@@ -78,7 +78,7 @@ RUN yarn install
 
 # Copy webpack files
 COPY ["webpack.mix.js", "/var/www/"]
-COPY webpacks /var/www/webpacks/
+#COPY webpacks /var/www/webpacks/
 
 # Copy relevant files from base image
 COPY --from=composer /var/www/public /var/www/public/

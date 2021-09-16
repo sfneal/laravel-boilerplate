@@ -6,6 +6,7 @@
     "type": "project",
     "require": {
         "php": "^7.4|^8.0",
+        "fideloper/proxy": "^4.0",
         "filp/whoops": "^2.3",
         "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
