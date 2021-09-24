@@ -3,12 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Pagination\Paginator;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Str;
-use Sfneal\Helpers\Laravel\AppInfo;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,7 +19,6 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
 
         Schema::defaultStringLength(191);
-        
     }
 
     /**
