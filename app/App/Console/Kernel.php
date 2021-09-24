@@ -2,10 +2,8 @@
 
 namespace App\Console;
 
-use App\Console\Commands\CacheViewsCommand;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use Sfneal\Tracking\Jobs\CleanDevTrackingJob;
 
 class Kernel extends ConsoleKernel
 {
