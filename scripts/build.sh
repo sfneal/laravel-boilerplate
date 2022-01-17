@@ -32,6 +32,7 @@ fi
 
 # Build app Docker image
 docker build \
+	--progress plain \
     -t stephenneal/laravel-boilerplate:"${VERSION//}" \
     --build-arg composer_flags="${COMPOSER_FLAGS}" \
     --build-arg yarn_env="${YARN_ENV}" \
