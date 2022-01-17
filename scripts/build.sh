@@ -9,9 +9,6 @@ VERSION="$(head -n 1 version.txt)"
 # Declare the 'environment' ('dev', 'production')
 ENV=${1-"dev"}
 
-# Determine if all images should be build
-ALL=${2-false}
-
 # Declare PHP Composer tag
 PHP_COMPOSER_TAG=${3:-"8.0-v1"}
 

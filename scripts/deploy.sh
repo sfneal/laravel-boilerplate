@@ -15,7 +15,7 @@ DOCKER_TAG="$(head -n 1 version.txt)"
 
 # Run the build & push scripts
 sh scripts/build.sh prod
-sh scripts/push.sh "${ALL}" > /dev/null 2>&1 & echo "Silently pushing Docker image [${DOCKER_TAG}]..."
+sh scripts/push.sh > /dev/null 2>&1 & echo "Silently pushing Docker image [${DOCKER_TAG}]..."
 
 # Create the deployment directory (./aws-eb-deployment) if it doesn't exist
 mkdir -p ".aws-eb-deployment"
