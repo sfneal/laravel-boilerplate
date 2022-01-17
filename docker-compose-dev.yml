@@ -5,12 +5,12 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
       args:
         env_file_name: .env.dev
         composer_flags: "--no-scripts --no-autoloader"
         yarn_env: "development"
-    image: stephenneal/laravel-boilerplate:0.1.0-dev
+    image: "stephenneal/laravel-boilerplate:0.1.0-${BRANCH}"
     container_name: app
     command: "--app"
     env_file: .env.dev
@@ -30,7 +30,7 @@ services:
 
   # PHP Service (worker)
   worker:
-    image: stephenneal/laravel-boilerplate:0.1.0-dev
+    image: "stephenneal/laravel-boilerplate:0.1.0-${BRANCH}"
     container_name: worker
     command: "--queue --schedule"
     env_file: .env.dev
