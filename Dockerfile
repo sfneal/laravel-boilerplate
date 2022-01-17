@@ -23,6 +23,36 @@ COPY ["changelog.txt", "/var/www/public/"]
 
 
 
+# NodeJS package installer
+FROM stephenneal/node-yarn:${node_yarn_tag} AS node
+
+# Set working directory
+WORKDIR /var/www
+
+# Yarn install environment ('production' or 'development')
+ARG yarn_env="production"
+
+# Copy npm package files
+COPY ["package.json", "yarn.lock", "/var/www/"]
+
+# Install node_modules
+RUN yarn install
+
+# Copy webpack files
+COPY ["webpack.mix.js", "/var/www/"]
+
+# Copy relevant files from base image
+COPY public /var/www/public/
+COPY resources /var/www/resources/
+
+# Compile webpack assets
+RUN yarn run ${yarn_env}
+
+# Remove node_modules directory
+RUN rm -r /var/www/node_modules
+
+
+
 # Build temp image to install composer dependencies
 FROM stephenneal/php-composer:${php_composer_tag} AS composer
 
@@ -63,36 +93,6 @@ RUN /var/www/scripts/composer-optimize.sh true
 
 
 
-# NodeJS package installer
-FROM stephenneal/node-yarn:${node_yarn_tag} AS node
-
-# Set working directory
-WORKDIR /var/www
-
-# Yarn install environment ('production' or 'development')
-ARG yarn_env="production"
-
-# Copy npm package files
-COPY ["package.json", "yarn.lock", "/var/www/"]
-
-# Install node_modules
-RUN yarn install
-
-# Copy webpack files
-COPY ["webpack.mix.js", "/var/www/"]
-
-# Copy relevant files from base image
-COPY public /var/www/public/
-COPY resources /var/www/resources/
-
-# Compile webpack assets
-RUN yarn run ${yarn_env}
-
-# Remove node_modules directory
-RUN rm -r /var/www/node_modules
-
-
-
 # Build PHP-fpm running image
 FROM stephenneal/php-laravel:${php_laravel_tag} as fpm
 WORKDIR /var/www
@@ -103,8 +103,8 @@ VOLUME ["/var/www"]
 COPY docker/supervisor /etc/supervisor/
 
 # Copy relevant files from base image
-COPY --from=composer /var/www .
 COPY --from=node /var/www .
+COPY --from=composer /var/www .
 
 ENTRYPOINT ["/bin/bash", "/var/www/scripts/start.sh"]
 CMD ["--app", "--queue", "--schedule"]
