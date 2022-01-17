@@ -5,8 +5,8 @@ services:
 
 env:
   global:
-    - PHP_COMPOSER_TAG="8.0-v1"
-    - PHP_LARAVEL_TAG="8.0-fpm-v2"
+    - PHP_COMPOSER_TAG="8.1-v2"
+    - PHP_LARAVEL_TAG="8.1-fpm-v3"
 
 php:
   - 8.0
