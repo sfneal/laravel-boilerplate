@@ -18,7 +18,8 @@ COPY ["server.php", "artisan", "phpunit.xml", "README.md", "/var/www/"]
 COPY docker/scripts /var/www/scripts/
 
 # Copy version & changelog files
-COPY ["version.txt", "changelog.txt", "/var/www/"]
+COPY ["version.txt", "/var/www/"]
+COPY ["changelog.txt", "/var/www/public/"]
 
 
 
@@ -46,14 +47,12 @@ COPY ${env_file_name} /var/www/.env
 # Copy 'relatively' static source code
 COPY database  /var/www/database/
 COPY tests  /var/www/tests/
-COPY public  /var/www/public/
-COPY config  /var/www/config/
 COPY storage  /var/www/storage/
 COPY bootstrap  /var/www/bootstrap/
+COPY config  /var/www/config/
 
 # Copy 'dynamic' source code
 COPY routes /var/www/routes/
-COPY resources /var/www/resources/
 COPY app /var/www/app/
 
 # Copy files from 'static' image
@@ -66,6 +65,9 @@ RUN /var/www/scripts/composer-optimize.sh true
 
 # NodeJS package installer
 FROM stephenneal/node-yarn:${node_yarn_tag} AS node
+
+# Set working directory
+WORKDIR /var/www
 
 # Yarn install environment ('production' or 'development')
 ARG yarn_env="production"
@@ -80,8 +82,8 @@ RUN yarn install
 COPY ["webpack.mix.js", "/var/www/"]
 
 # Copy relevant files from base image
-COPY --from=composer /var/www/public /var/www/public/
-COPY --from=composer /var/www/resources /var/www/resources/
+COPY public /var/www/public/
+COPY resources /var/www/resources/
 
 # Compile webpack assets
 RUN yarn run ${yarn_env}
