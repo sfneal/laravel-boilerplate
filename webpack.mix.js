@@ -14,11 +14,11 @@ const mix = require('laravel-mix');
 // Set public path to avoid file not found errors
 mix.setPublicPath('./public');
 
-// npm assets
-mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        //
-    ]);
+// Application assets
+mix
+    .sass('resources/sass/app.scss', 'public/css')
+    .js('resources/js/app.js', 'public/js')
+    .sourceMaps();
 
 // Add versions
 if (mix.inProduction()) {
