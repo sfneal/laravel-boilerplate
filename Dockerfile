@@ -1,6 +1,6 @@
 # Base PHP image tags
-ARG php_composer_tag=8.0-v1
-ARG php_laravel_tag=8.0-fpm-v2
+ARG php_composer_tag=8.1-v2
+ARG php_laravel_tag=8.1-fpm-v3
 ARG node_yarn_tag=v4
 
 
@@ -78,7 +78,6 @@ RUN yarn install
 
 # Copy webpack files
 COPY ["webpack.mix.js", "/var/www/"]
-#COPY webpacks /var/www/webpacks/
 
 # Copy relevant files from base image
 COPY --from=composer /var/www/public /var/www/public/
