@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
 
-# Declare the 'boot' mode ('dev', 'upgrade', 'build')
-mode=${1-"dev"}
-
 # Declare the log to follow ('query' or 'laravel')
-log=${2-"query"}
+log=${1-"query"}
 
 # Export Docker image Tag
 if [ -z "$TRAVIS_BRANCH" ]; then
@@ -18,9 +15,14 @@ export BRANCH
 composer down
 
 # Build new containers
-docker compose -f docker-compose-dev.yml build --progress plain
+docker compose -f docker-compose-dev-db.yml build --progress plain
 
 # Start fresh container instances
-docker compose -f docker-compose-dev.yml up -d
+docker compose -f docker-compose-dev-db.yml up -d
 
+# Artisan Migration
+sleep 20
+docker exec -it app php artisan migrate --seed
+
+# Follow 'app' container's 'laravel' logs
 docker exec -it app tail -f storage/logs/${log}.log
