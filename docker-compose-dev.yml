@@ -105,7 +105,7 @@ services:
 
   # Certification Bot
   certbot:
-    image: stephenneal/certbot:v10
+    image: stephenneal/certbot:v11
     container_name: certbot
     volumes:
       - certs:/etc/letsencrypt
