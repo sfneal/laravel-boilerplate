@@ -46,7 +46,7 @@ COPY public /var/www/public/
 COPY resources/assets /var/www/resources/assets/
 COPY resources/css /var/www/resources/css/
 COPY resources/js /var/www/resources/js/
-COPY resources/sass /var/www/resources/sass/
+#COPY resources/sass /var/www/resources/sass/
 
 # Compile webpack assets
 RUN yarn run ${yarn_env}
