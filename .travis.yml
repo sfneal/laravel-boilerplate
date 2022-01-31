@@ -24,7 +24,7 @@ before_script:
   - phpenv config-rm xdebug.ini
 
   # Authenticate Docker Hub
-#  - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
 
 script:
   - composer build
