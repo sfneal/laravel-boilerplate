@@ -10,7 +10,7 @@ class WelcomePageTest extends TestCase
     public function status_is_okay()
     {
         $response = $this->get('/');
-        
+
         $response->assertStatus(200);
         $response->assertOk();
     }
