@@ -57,7 +57,7 @@
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
             "php artisan optimize"
         ],
-        "test": "vendor/bin/phpunit",
+        "test": "docker exec -it app ./vendor/bin/phpunit",
         "test-coverage": "vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover",
         "boot": "bash scripts/boot.sh",
         "boot-upgrade": [
@@ -71,6 +71,7 @@
             "composer build",
             "docker compose up -d"
         ],
+        "boot-prod-db": "bash scripts/boot-prod-db.sh",
         "boot-test": "bash scripts/boot-test.sh",
         "boot-db-test": "bash scripts/boot-db-test.sh",
         "build": "bash scripts/build.sh prod",
