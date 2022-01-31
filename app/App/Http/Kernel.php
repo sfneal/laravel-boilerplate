@@ -25,8 +25,6 @@ use Illuminate\Routing\Middleware\ThrottleRequests;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-use Sfneal\Honeypot\Middleware\HoneyPot;
-use Sfneal\Tracking\Middleware\TrackTrafficMiddleware;
 
 class Kernel extends HttpKernel
 {
@@ -66,9 +64,6 @@ class Kernel extends HttpKernel
             ShareErrorsFromSession::class,
             VerifyCsrfToken::class,
             SubstituteBindings::class,
-
-            // Track middleware
-            TrackTrafficMiddleware::class,
         ],
 
         // Public Middleware
@@ -101,9 +96,6 @@ class Kernel extends HttpKernel
         // Route middleware from public app
         'cache.headers' => SetCacheHeaders::class,
         'verified' => EnsureEmailIsVerified::class,
-
-        // PublicSite controller middleware
-        'honeypot' => HoneyPot::class,
     ];
 
     /**
