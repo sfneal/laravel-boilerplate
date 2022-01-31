@@ -24,16 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // Retry All Failed Jobs every 6 hours
-//        $schedule->job(RetryAllFailedJobsJob::class)
-//            ->environments('production')
-//            ->everyThirtyMinutes();
-
-        // Run Daily Database Backups at 2am
-//        $schedule->job(BackupDbJob::class)
-//            ->onOneServer()
-//            ->environments('production')
-//            ->dailyAt('2:00');
+        //
     }
 
     /**
