@@ -1,4 +1,6 @@
 const mix = require('laravel-mix');
+require('laravel-mix-purgecss');
+const path = require("path");
 
 /*
  |--------------------------------------------------------------------------
@@ -11,16 +13,26 @@ const mix = require('laravel-mix');
  |
  */
 
-// Set public path to avoid file not found errors
-mix.setPublicPath('./public');
-
-// Application assets
 mix
+    // Set public path to avoid file not found errors
+    .setPublicPath('./public')
+
+    // Application assets
     .sass('resources/sass/app.scss', 'public/css')
     .js('resources/js/app.js', 'public/js')
     .sourceMaps();
 
-// Add versions
+// Production config
 if (mix.inProduction()) {
+    // Add versions
     mix.version();
+
+    // Purge CSS
+    mix.purgeCss({
+        extend: {
+            content: [
+                path.join(__dirname, 'public/js/app.js'),
+            ],
+        },
+    });
 }

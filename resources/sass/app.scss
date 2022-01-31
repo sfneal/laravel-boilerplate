@@ -6,12 +6,19 @@
 @import 'variables';
 
 // Bootstrap
-@import '../../node_modules/bootstrap/scss/bootstrap';
+@import '~bootstrap/scss/bootstrap';
 
-// CSS
-@import '../css/app.css';
+// jQuery
+@import '~jquery-ui/themes/base/all.css';
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-}
+// Font Awesome
+@import "font-awesome";
+
+// Vendor Plugins
+//
+
+// Custom SCSS
+@import "custom";
+
+// Custom CSS
+@import '../css/custom.css';
