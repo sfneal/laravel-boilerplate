@@ -165,8 +165,6 @@ return [
         /*
          * Package Service Providers...
          */
-        Sfneal\Tracking\Providers\TrackingServiceProvider::class,
-        Sfneal\PostOffice\Providers\PostOfficeServiceProvider::class,
 
         /*
          * Application Service Providers...
