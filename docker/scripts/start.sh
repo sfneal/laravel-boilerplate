@@ -11,10 +11,8 @@ touch /var/www/storage/logs/traffic.log
 
 # Set permissions for log storage
 chown -R $USER:www-data /var/www/storage
-chown -R $USER:www-data /var/www/vendor/dompdf/dompdf
 chown -R $USER:www-data /var/www/bootstrap/cache
 chmod -R 775 /var/www/storage
-chmod -R 777 /var/www/vendor/dompdf/dompdf
 chmod -R 775 /var/www/bootstrap/cache
 
 # Clear config and cache
