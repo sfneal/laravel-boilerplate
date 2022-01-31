@@ -20,6 +20,7 @@
         "sass-loader": "^7.1.0"
     },
     "devDependencies": {
+        "laravel-mix-purgecss": "^6.0.0",
         "postcss": "^8.2",
         "vue-template-compiler": "^2.6.12"
     }
