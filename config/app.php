@@ -165,8 +165,6 @@ return [
         /*
          * Package Service Providers...
          */
-        Sfneal\Tracking\Providers\TrackingServiceProvider::class,
-        Sfneal\PostOffice\Providers\PostOfficeServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -223,8 +221,6 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
-        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ],
 
 ];
