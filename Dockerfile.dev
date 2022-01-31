@@ -46,7 +46,7 @@ COPY public /var/www/public/
 COPY resources/assets /var/www/resources/assets/
 COPY resources/css /var/www/resources/css/
 COPY resources/js /var/www/resources/js/
-#COPY resources/sass /var/www/resources/sass/
+COPY resources/sass /var/www/resources/sass/
 
 # Compile webpack assets
 RUN yarn run ${yarn_env}
@@ -66,6 +66,9 @@ FROM stephenneal/php-composer:${php_composer_tag} AS composer
 # Set working directory
 WORKDIR /var/www
 
+# Create bootstrap cache
+RUN mkdir -p /var/www/bootstrap/cache
+
 # Laravel .env file
 ARG env_file_name=.env
 
@@ -84,7 +87,7 @@ COPY ${env_file_name} /var/www/.env
 # Copy 'relatively' static source code
 COPY database  /var/www/database/
 COPY storage  /var/www/storage/
-COPY bootstrap  /var/www/bootstrap/
+COPY bootstrap/app.php  /var/www/bootstrap/
 COPY config  /var/www/config/
 
 # Copy 'dynamic' source code
