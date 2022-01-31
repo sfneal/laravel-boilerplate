@@ -7,9 +7,10 @@
     "dependencies": {
         "axios": ">=0.21",
         "bootstrap": "^4.0.0",
-        "chart.js": "^2.5",
         "cross-env": ">=5.1",
         "jquery": "^3.2",
+        "jquery-migrate": "^3.3.2",
+        "jquery-ui": "^1.12.1",
         "laravel-mix": "^6.0",
         "lodash": "^4.17.5",
         "popper.js": "^1.12",
