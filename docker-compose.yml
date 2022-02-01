@@ -3,17 +3,9 @@ version: '3'
 services:
   # PHP Service (app)
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      args:
-        env_file_name: .env.dev
-        composer_flags: "--no-scripts --no-autoloader --no-dev"
-        yarn_env: "development"
     image: stephenneal/laravel-boilerplate:0.1.0
     container_name: app
     command: "--app"
-    env_file: .env.dev
     restart: unless-stopped
     tty: true
     working_dir: /var/www
@@ -29,16 +21,11 @@ services:
     image: stephenneal/laravel-boilerplate:0.1.0
     container_name: worker
     command: "--queue --schedule"
-    env_file: .env.dev
     restart: unless-stopped
     tty: true
     working_dir: /var/www
     volumes:
       - app:/var/www
-      - ./app:/var/www/app
-      - ./public:/var/www/public
-      - ./resources:/var/www/resources
-      - ./routes:/var/www/routes
     depends_on:
       - app
     networks:
@@ -108,7 +95,7 @@ services:
     environment:
       - validation_domain=validation.laravel-boilerplate.com
       - email=stephen@stephenneal.net
-      - staging=1
+      - staging=0
     depends_on:
       - webserver
     restart: "no"
