@@ -9,6 +9,12 @@ touch /var/www/storage/logs/worker.log
 touch /var/www/storage/logs/query.log
 touch /var/www/storage/logs/traffic.log
 
+# Truncate Logs
+truncate -s 0 /var/www/storage/logs/laravel.log
+truncate -s 0 /var/www/storage/logs/worker.log
+truncate -s 0 /var/www/storage/logs/query.log
+truncate -s 0 /var/www/storage/logs/traffic.log
+
 # Set permissions for log storage
 chown -R $USER:www-data /var/www/storage
 chown -R $USER:www-data /var/www/bootstrap/cache
