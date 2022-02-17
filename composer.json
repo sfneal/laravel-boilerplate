@@ -65,6 +65,7 @@
         ],
         "boot-build": "bash scripts/boot.sh build",
         "boot-db": "bash scripts/boot-db.sh",
+        "boot-node": "bash scripts/boot-node.sh",
         "boot-prod": [
             "composer down",
             "composer build",
