@@ -38,6 +38,9 @@ services:
     working_dir: /var/www
     volumes:
       - app:/var/www
+      - ./package.json:/var/www/package.json
+      - ./webpack.mix.js:/var/www/webpack.mix.js
+      - ./public/img:/var/www/public/img
       - ./resources:/var/www/resources
     depends_on:
       - app
