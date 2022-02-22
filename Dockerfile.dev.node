@@ -43,8 +43,8 @@ COPY ["webpack.mix.js", "/var/www/"]
 
 # Copy relevant files from base image
 COPY public /var/www/public/
-COPY resources/assets /var/www/resources/assets/
 COPY resources/css /var/www/resources/css/
+COPY resources/images /var/www/resources/images/
 COPY resources/js /var/www/resources/js/
 COPY resources/sass /var/www/resources/sass/
 
