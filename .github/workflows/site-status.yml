@@ -1,0 +1,26 @@
+name: Site Status
+
+on:
+    push:
+        branches:
+            - 'site-status'
+#    workflow_run:
+#        workflows: ["Deploy to AWS EB"]
+#        types:
+#            - completed
+#    schedule:
+#        -   cron: '0 8 * * *'
+
+jobs:
+    status:
+        name: HTTP Status
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Checkout code
+                uses: actions/checkout@v1
+
+            - name: Check HTTP status code of production site
+              uses: lakuapik/gh-actions-http-status@v1
+              with:
+                  sites: '["https://laravel-boilerplate"]'
+                  expected: '[200]'
