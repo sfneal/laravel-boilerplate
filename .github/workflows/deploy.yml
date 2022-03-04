@@ -1,0 +1,39 @@
+name: Deploy to AWS EB
+
+on:
+    workflow_run:
+        workflows: ["Docker Push"]
+        types:
+            - completed
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        strategy:
+            fail-fast: false
+            matrix:
+                os: [ubuntu-latest]
+                php: [8.1]
+
+        name: PHP${{ matrix.php }}
+
+        steps:
+            -   name: Checkout code
+                uses: actions/checkout@v1
+
+            -   name: Set Version
+                run: echo "VERSION=$(echo $(head -n 1 version.txt) | cut -c 1-6)" >> $GITHUB_ENV
+
+            -   name: Generate deployment package
+                run: zip -r "${VERSION}".zip 'docker-compose.yml'
+
+            -   name: Deploy to Elastic Beanstaalk
+                uses: einaregilsson/beanstalk-deploy@v20
+                with:
+                    aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                    aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                    application_name: laravel-boilerplate
+                    environment_name: laravel-boilerplate-web-production
+                    version_label: ${{ env.VERSION }}
+                    region: us-east-1
+                    deployment_package: ${{ env.VERSION }}.zip
