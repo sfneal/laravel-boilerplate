@@ -1,7 +1,6 @@
 name: Deploy to AWS EB
 
 on:
-    push:
     release:
         types: [published]
 
