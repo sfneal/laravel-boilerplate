@@ -1,13 +1,10 @@
 name: Site Status
 
 on:
-    push:
-        branches:
-            - 'site-status'
-#    workflow_run:
-#        workflows: ["Deploy to AWS EB"]
-#        types:
-#            - completed
+    workflow_run:
+        workflows: ["Deploy to AWS EB"]
+        types:
+            - completed
 #    schedule:
 #        -   cron: '0 8 * * *'
 

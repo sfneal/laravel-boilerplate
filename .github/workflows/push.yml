@@ -1,11 +1,8 @@
 name: Docker Push
 
 on:
-    push:
-        branches:
-            - 'site-status'
-#    release:
-#        types: [published]
+    release:
+        types: [published]
 
 jobs:
     deploy:
