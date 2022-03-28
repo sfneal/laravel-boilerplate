@@ -24,11 +24,11 @@ jobs:
             -   name: Checkout code
                 uses: actions/checkout@v1
 
-            -   name: Build Docker Images
-                run: docker compose -f docker-compose-dev.yml build
-
             -   name: Pull Docker Images
                 run: docker compose pull --ignore-pull-failures
+
+            -   name: Build Docker Images
+                run: docker compose -f docker-compose-dev.yml build
 
             -   name: Test Docker Services
                 run: composer ${{ matrix.composer-script }}

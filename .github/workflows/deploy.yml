@@ -13,7 +13,7 @@ jobs:
                 os: [ubuntu-latest]
                 php: [8.1]
 
-        name: PHP${{ matrix.php }}
+        name: Docker Push
 
         steps:
             -   name: Checkout code
@@ -41,6 +41,7 @@ jobs:
                 run: bash .github/scripts/push-git.sh
 
     deploy:
+        needs: push
         runs-on: ubuntu-latest
         strategy:
             fail-fast: false
@@ -48,7 +49,7 @@ jobs:
                 os: [ubuntu-latest]
                 php: [8.1]
 
-        name: PHP${{ matrix.php }}
+        name: AWS EB Deploy
 
         steps:
             -   name: Checkout code
