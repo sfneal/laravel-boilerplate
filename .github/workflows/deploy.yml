@@ -16,23 +16,29 @@ jobs:
         name: Docker Push
 
         steps:
-          -   name: Checkout code
-              uses: actions/checkout@v1
+            -   name: Checkout code
+                uses: actions/checkout@v2
 
-          -   name: Setup PHP
-              uses: shivammathur/setup-php@v2
-              with:
-                  php-version: ${{ matrix.php }}
-                  coverage: none
+            -   name: Authenticate Docker Hub
+                run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login --username "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
-          -   name: Authenticate Docker Hub
-              run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login --username "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+            -   name: Setup node
+                uses: actions/setup-node@v2
+                with:
+                    node-version: 17
+                    cache: 'yarn'
 
-          -   name: Build Production Docker Image
-              run: composer build
+            -   name: Install Dependencies
+                run: yarn install
 
-          -   name: Push Production Docker Image
-              run: composer push
+            -   name: Build Webpacks
+                run: yarn run production
+
+            -   name: Build Production Docker Image
+                run: bash .github/scripts/build-git.sh
+
+            -   name: Push Production Docker Image
+                run: bash .github/scripts/push-git.sh
 
     deploy:
         needs: push
