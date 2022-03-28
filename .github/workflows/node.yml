@@ -41,6 +41,7 @@ jobs:
                 run: yarn run ${{ matrix.environment }}
 
     webpack:
+        needs: yarn
         runs-on: ${{ matrix.os }}
         strategy:
             matrix:
@@ -49,8 +50,6 @@ jobs:
                 environment: [production]
 
         name: Webpack ${{ matrix.node }} - ${{ matrix.environment }}
-
-        needs: yarn
 
         steps:
             -   name: Build Webpacks
