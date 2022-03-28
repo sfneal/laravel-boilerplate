@@ -13,34 +13,29 @@ jobs:
                 os: [ubuntu-latest]
                 php: [8.1]
 
-        name: PHP${{ matrix.php }}
+        name: PHP ${{ matrix.php }}
 
         steps:
-            -   name: Checkout code
-                uses: actions/checkout@v2
+          -   name: Checkout code
+              uses: actions/checkout@v1
 
-            -   name: Authenticate Docker Hub
-                run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login --username "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+          -   name: Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: ${{ matrix.php }}
+                  coverage: none
 
-            -   name: Setup node
-                uses: actions/setup-node@v2
-                with:
-                    node-version: 17
-                    cache: 'yarn'
+          -   name: Authenticate Docker Hub
+              run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login --username "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
-            -   name: Install Dependencies
-                run: yarn install
+          -   name: Build Production Docker Image
+              run: composer build
 
-            -   name: Build Webpacks
-                run: yarn run production
-
-            -   name: Build Production Docker Image
-                run: bash .github/scripts/build-git.sh
-
-            -   name: Push Production Docker Image
-                run: bash .github/scripts/push-git.sh
+          -   name: Push Production Docker Image
+              run: composer push
 
     deploy:
+        needs: push
         runs-on: ubuntu-latest
         strategy:
             fail-fast: false
@@ -48,7 +43,7 @@ jobs:
                 os: [ubuntu-latest]
                 php: [8.1]
 
-        name: PHP${{ matrix.php }}
+        name: PHP ${{ matrix.php }}
 
         steps:
             -   name: Checkout code
