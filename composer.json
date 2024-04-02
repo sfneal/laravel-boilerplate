@@ -8,7 +8,7 @@
         "php": "^8.3",
         "filp/whoops": "^2.3",
         "guzzlehttp/guzzle": "^7.0",
-        "laravel/framework": "^10.0|^11.0",
+        "laravel/framework": "^9.0|^10.0|^11.0",
         "predis/predis": "^2.0",
         "sfneal/caching": "^3.0",
         "sfneal/controllers": "^3.0",
