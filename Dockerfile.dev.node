@@ -1,6 +1,6 @@
 # Base PHP image tags
-ARG php_composer_tag=8.3-v2
-ARG php_laravel_tag=8.3-fpm-v3
+ARG php_composer_tag=8.1-v2
+ARG php_laravel_tag=8.1-fpm-v3
 ARG node_yarn_tag=v4
 
 
