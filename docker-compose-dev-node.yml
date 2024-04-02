@@ -69,7 +69,7 @@ services:
 
   # Nginx proxy
   proxy:
-    image: stephenneal/nginx-proxy:1.21-alpine-v1
+    image: stephenneal/nginx-proxy:1.25-alpine
     container_name: proxy
     volumes:
       - certs:/etc/letsencrypt
@@ -87,7 +87,7 @@ services:
 
   # Nginx webserver
   webserver:
-    image: stephenneal/nginx-laravel:1.21-alpine-v1
+    image: stephenneal/nginx-laravel:1.25-alpine
     container_name: webserver
     restart: unless-stopped
     tty: true
