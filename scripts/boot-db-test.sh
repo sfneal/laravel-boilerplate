@@ -22,4 +22,4 @@ sleep 20
 docker exec app php artisan migrate --seed
 
 # Run phpunit inside Docker 'app' container
-docker exec -it app ./vendor/bin/phpunit
+docker exec -it app ./vendor/bin/phpunit || docker exec app ./vendor/bin/phpunit

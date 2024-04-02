@@ -20,4 +20,4 @@ docker compose -f docker-compose-dev.yml build --progress plain
 # Start fresh container instances
 docker compose -f docker-compose-dev.yml up -d
 
-docker exec app ./vendor/bin/phpunit
+docker exec -it app ./vendor/bin/phpunit || docker exec app ./vendor/bin/phpunit
