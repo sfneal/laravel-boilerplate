@@ -10,10 +10,10 @@ VERSION="$(head -n 1 version.txt)"
 ENV=${1-"dev"}
 
 # Declare PHP Composer tag
-PHP_COMPOSER_TAG=${3:-"8.1-v2"}
+PHP_COMPOSER_TAG=${3:-"8.3-v2"}
 
 # Declare PHP Laravel tag
-PHP_LARAVEL_TAG=${4:-"8.1-fpm-v3"}
+PHP_LARAVEL_TAG=${4:-"8.3-fpm-v3"}
 
 
 # Set params for a 'development' build
