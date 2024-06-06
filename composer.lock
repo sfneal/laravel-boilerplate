@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "857ce37f8791e19d312a352635b08db3",
+    "content-hash": "ef21facb29e35bf7671332fe0d966291",
     "packages": [
         {
             "name": "brick/math",
@@ -3595,32 +3595,32 @@
         },
         {
             "name": "sfneal/view-models",
-            "version": "4.0.0",
+            "version": "5.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sfneal/view-models.git",
-                "reference": "62cdd1adf157af4c40fd01825305fcd4320d7331"
+                "reference": "f14bff7f9062a6c5c7e91b1f6b7a075c6139f56c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sfneal/view-models/zipball/62cdd1adf157af4c40fd01825305fcd4320d7331",
-                "reference": "62cdd1adf157af4c40fd01825305fcd4320d7331",
+                "url": "https://api.github.com/repos/sfneal/view-models/zipball/f14bff7f9062a6c5c7e91b1f6b7a075c6139f56c",
+                "reference": "f14bff7f9062a6c5c7e91b1f6b7a075c6139f56c",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.3|^8.0",
-                "sfneal/caching": "^2.0|^3.0",
+                "php": "^8.0|^8.1|^8.2|^8.3",
+                "sfneal/caching": "^2.0|^3.0|^4.0",
                 "sfneal/laravel-helpers": "^2.4",
                 "sfneal/queueables": "^2.0",
-                "sfneal/redis-helpers": "^1.2|^2.0",
-                "sfneal/string-helpers": ">=1.0.0",
-                "spatie/laravel-view-models": ">=1.1"
+                "sfneal/redis-helpers": "^1.2|^2.0|^3.0",
+                "sfneal/string-helpers": "^1.0",
+                "spatie/laravel-view-models": "^1.1"
             },
             "require-dev": {
                 "ext-json": "*",
                 "josiasmontag/laravel-redis-mock": ">=1.2.6",
-                "orchestra/testbench": "^6.24.1|^7.0",
-                "phpunit/phpunit": "^9.3",
+                "orchestra/testbench": "^7.40|^8.0|9.0",
+                "phpunit/phpunit": "^9.6|^10.0|^11.0",
                 "scrutinizer/ocular": "^1.8"
             },
             "type": "library",
@@ -3648,9 +3648,9 @@
             ],
             "support": {
                 "issues": "https://github.com/sfneal/view-models/issues",
-                "source": "https://github.com/sfneal/view-models/tree/4.0.0"
+                "source": "https://github.com/sfneal/view-models/tree/5.1.2"
             },
-            "time": "2022-03-01T18:27:46+00:00"
+            "time": "2024-04-30T19:25:18+00:00"
         },
         {
             "name": "spatie/laravel-package-tools",
