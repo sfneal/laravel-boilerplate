@@ -71,10 +71,24 @@
             "docker compose up -d"
         ],
         "boot-prod-db": "bash scripts/boot-prod-db.sh",
-        "boot-test": "bash scripts/boot-test.sh",
-        "boot-db-test": "bash scripts/boot-db-test.sh",
         "build": "bash scripts/build.sh prod",
         "build-dev": "bash scripts/build.sh dev",
+        "boot-db-start": [
+            "Composer\\Config::disableProcessTimeout",
+            "bash scripts/boot-db-start.sh"
+        ],
+        "boot-db-test-start": [
+            "Composer\\Config::disableProcessTimeout",
+            "bash scripts/boot-db-test-start.sh"
+        ],
+        "boot-test": [
+            "Composer\\Config::disableProcessTimeout",
+            "bash scripts/boot-test.sh"
+        ],
+        "boot-db-test": [
+            "Composer\\Config::disableProcessTimeout",
+            "bash scripts/boot-db-test.sh"
+        ],
         "push": "bash scripts/push.sh",
         "deploy": "bash scripts/deploy.sh",
         "down": "docker compose down -v --remove-orphans",
