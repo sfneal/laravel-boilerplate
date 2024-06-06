@@ -2,11 +2,12 @@
 
 namespace Tests\Unit;
 
+use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 class WelcomePageTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function status_is_okay()
     {
         $response = $this->get('/');
