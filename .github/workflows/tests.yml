@@ -34,7 +34,7 @@ jobs:
                 run: docker compose pull --ignore-pull-failures
 
             -   name: Start Docker Services
-                run: composer boot-db-start
+                run: composer boot-db-test-start
 
             -   name: Migrate & seed database
                 run: docker exec app php artisan migrate --seed
