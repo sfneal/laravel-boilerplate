@@ -31,7 +31,7 @@ jobs:
                 run: docker compose -f docker-compose-dev-db.yml build
 
             -   name: Pull Docker Images
-                run: docker compose pull --ignore-pull-failures
+                run: docker compose pull -f docker-compose-tests.yml --ignore-pull-failures
 
             -   name: Start Docker Services
                 run: composer boot-db-test-start
