@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8abc786b6c46ac1a09404ec708fd7b8a",
+    "content-hash": "52db6afe4173406dafe37abe19cfcd86",
     "packages": [
         {
             "name": "brick/math",
@@ -3145,26 +3145,27 @@
         },
         {
             "name": "sfneal/caching",
-            "version": "3.0.0",
+            "version": "4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sfneal/caching.git",
-                "reference": "2e0c6d1871480afce3ed3899ba37afb3512aad8d"
+                "reference": "d0f1c0903c52804aec53d3a4d52cb5a0c1ddf4ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sfneal/caching/zipball/2e0c6d1871480afce3ed3899ba37afb3512aad8d",
-                "reference": "2e0c6d1871480afce3ed3899ba37afb3512aad8d",
+                "url": "https://api.github.com/repos/sfneal/caching/zipball/d0f1c0903c52804aec53d3a4d52cb5a0c1ddf4ef",
+                "reference": "d0f1c0903c52804aec53d3a4d52cb5a0c1ddf4ef",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.3|^8.0",
-                "sfneal/redis-helpers": "^1.4|^2.0"
+                "laravel/framework": "^8.75|^9.0|^10.0|^11.0",
+                "php": "^8.0|^8.1|^8.2|^8.3",
+                "sfneal/redis-helpers": "^1.4|^2.0|^3.0"
             },
             "require-dev": {
                 "josiasmontag/laravel-redis-mock": ">=1.2.6",
-                "orchestra/testbench": "^6.24.1|^7.0",
-                "phpunit/phpunit": "^9.3",
+                "orchestra/testbench": "^7.40|^8.0|9.0",
+                "phpunit/phpunit": "^9.6|^10.0|^11.0",
                 "scrutinizer/ocular": "^1.8",
                 "sfneal/currency": "^2.0"
             },
@@ -3193,9 +3194,9 @@
             ],
             "support": {
                 "issues": "https://github.com/sfneal/caching/issues",
-                "source": "https://github.com/sfneal/caching/tree/3.0.0"
+                "source": "https://github.com/sfneal/caching/tree/4.1.0"
             },
-            "time": "2022-02-28T15:15:29+00:00"
+            "time": "2024-05-22T19:56:15+00:00"
         },
         {
             "name": "sfneal/controllers",
@@ -3482,27 +3483,27 @@
         },
         {
             "name": "sfneal/redis-helpers",
-            "version": "2.0.2",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sfneal/redis-helpers.git",
-                "reference": "53a9e5fcc4b67b41259770b35216c1302456de14"
+                "reference": "268a54acb17297f2a3847f700e7e9efa29d3be03"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sfneal/redis-helpers/zipball/53a9e5fcc4b67b41259770b35216c1302456de14",
-                "reference": "53a9e5fcc4b67b41259770b35216c1302456de14",
+                "url": "https://api.github.com/repos/sfneal/redis-helpers/zipball/268a54acb17297f2a3847f700e7e9efa29d3be03",
+                "reference": "268a54acb17297f2a3847f700e7e9efa29d3be03",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": ">=5.6.0",
-                "php": ">=7.1"
+                "laravel/framework": "^8.75|^9.0|^10.0|^11.0",
+                "php": "^8.0|^8.1|^8.2|^8.3"
             },
             "require-dev": {
                 "josiasmontag/laravel-redis-mock": ">=1.2.6",
-                "orchestra/testbench": ">=3.8.0",
-                "phpunit/phpunit": ">=6.5.14",
-                "predis/predis": "^1.1",
+                "orchestra/testbench": "^7.40|^8.0|9.0",
+                "phpunit/phpunit": "^9.6|^10.0|^11.0",
+                "predis/predis": "^1.1 || ^2.0",
                 "scrutinizer/ocular": "^1.8"
             },
             "type": "library",
@@ -3537,9 +3538,9 @@
             ],
             "support": {
                 "issues": "https://github.com/sfneal/redis-helpers/issues",
-                "source": "https://github.com/sfneal/redis-helpers/tree/2.0.2"
+                "source": "https://github.com/sfneal/redis-helpers/tree/3.0.0"
             },
-            "time": "2024-04-16T17:32:57+00:00"
+            "time": "2024-04-16T17:45:36+00:00"
         },
         {
             "name": "sfneal/string-helpers",
