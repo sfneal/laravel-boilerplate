@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d4eaca06053ddcd9b6ead5d1908ae1de",
+    "content-hash": "857ce37f8791e19d312a352635b08db3",
     "packages": [
         {
             "name": "brick/math",
@@ -3038,23 +3038,23 @@
         },
         {
             "name": "sfneal/actions",
-            "version": "2.0.0",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sfneal/actions.git",
-                "reference": "033b1616e053d33b335d1d77eb9d5d54551abf4b"
+                "reference": "86a0df2038f8ec2b3b45e7071159197379e14ee8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sfneal/actions/zipball/033b1616e053d33b335d1d77eb9d5d54551abf4b",
-                "reference": "033b1616e053d33b335d1d77eb9d5d54551abf4b",
+                "url": "https://api.github.com/repos/sfneal/actions/zipball/86a0df2038f8ec2b3b45e7071159197379e14ee8",
+                "reference": "86a0df2038f8ec2b3b45e7071159197379e14ee8",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6"
             },
             "require-dev": {
-                "phpunit/phpunit": ">=5.7.27",
+                "phpunit/phpunit": "^5.7.27|^7.5|^8.0 <8.5.12|^9.3",
                 "scrutinizer/ocular": "^1.8"
             },
             "type": "library",
@@ -3082,9 +3082,9 @@
             ],
             "support": {
                 "issues": "https://github.com/sfneal/actions/issues",
-                "source": "https://github.com/sfneal/actions/tree/2.0.0"
+                "source": "https://github.com/sfneal/actions/tree/2.1.0"
             },
-            "time": "2021-03-30T21:14:13+00:00"
+            "time": "2024-03-29T19:57:51+00:00"
         },
         {
             "name": "sfneal/array-helpers",
@@ -3372,31 +3372,30 @@
         },
         {
             "name": "sfneal/models",
-            "version": "3.0.0",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sfneal/models.git",
-                "reference": "0f45fc2fc7436eddb7bed214380dfed1da3bfa71"
+                "reference": "e64cb0185255e020cecbb005ab69d7894d84b9fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sfneal/models/zipball/0f45fc2fc7436eddb7bed214380dfed1da3bfa71",
-                "reference": "0f45fc2fc7436eddb7bed214380dfed1da3bfa71",
+                "url": "https://api.github.com/repos/sfneal/models/zipball/e64cb0185255e020cecbb005ab69d7894d84b9fc",
+                "reference": "e64cb0185255e020cecbb005ab69d7894d84b9fc",
                 "shasum": ""
             },
             "require": {
-                "illuminate/database": ">=8.2",
+                "laravel/framework": "^8.75|^9.0|^10.0|^11.0",
                 "php": "^8.0",
                 "sfneal/actions": "^2.0",
                 "sfneal/laravel-helpers": "^2.0",
-                "sfneal/redis-helpers": "^1.2|^2.0",
+                "sfneal/redis-helpers": "^1.2|^2.0|^3.0",
                 "sfneal/string-helpers": ">=1.1.4"
             },
             "require-dev": {
                 "laravel/legacy-factories": ">=1.1.0",
                 "orchestra/testbench": "^7.40|^8.0|9.0",
                 "phpunit/phpunit": "^9.6|^10.0|^11.0",
-                "scrutinizer/ocular": "^1.8",
                 "sfneal/array-helpers": "^3.0"
             },
             "type": "library",
@@ -3425,9 +3424,9 @@
             ],
             "support": {
                 "issues": "https://github.com/sfneal/models/issues",
-                "source": "https://github.com/sfneal/models/tree/3.0.0"
+                "source": "https://github.com/sfneal/models/tree/4.0.0"
             },
-            "time": "2024-03-29T22:07:20+00:00"
+            "time": "2024-05-01T21:33:24+00:00"
         },
         {
             "name": "sfneal/queueables",
@@ -3483,16 +3482,16 @@
         },
         {
             "name": "sfneal/redis-helpers",
-            "version": "2.0.1",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sfneal/redis-helpers.git",
-                "reference": "3c4f4be0ca3eebf635b473e345a8208b25eb82dc"
+                "reference": "53a9e5fcc4b67b41259770b35216c1302456de14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sfneal/redis-helpers/zipball/3c4f4be0ca3eebf635b473e345a8208b25eb82dc",
-                "reference": "3c4f4be0ca3eebf635b473e345a8208b25eb82dc",
+                "url": "https://api.github.com/repos/sfneal/redis-helpers/zipball/53a9e5fcc4b67b41259770b35216c1302456de14",
+                "reference": "53a9e5fcc4b67b41259770b35216c1302456de14",
                 "shasum": ""
             },
             "require": {
@@ -3538,9 +3537,9 @@
             ],
             "support": {
                 "issues": "https://github.com/sfneal/redis-helpers/issues",
-                "source": "https://github.com/sfneal/redis-helpers/tree/2.0.1"
+                "source": "https://github.com/sfneal/redis-helpers/tree/2.0.2"
             },
-            "time": "2021-09-14T20:19:42+00:00"
+            "time": "2024-04-16T17:32:57+00:00"
         },
         {
             "name": "sfneal/string-helpers",
