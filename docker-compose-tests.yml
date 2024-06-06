@@ -1,0 +1,73 @@
+version: '3'
+
+services:
+  # PHP Service (app)
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+      args:
+        env_file_name: .env.dev.db
+        composer_flags: "--no-scripts --no-autoloader"
+        yarn_env: "development"
+    image: "stephenneal/laravel-boilerplate:0.1.0-${BRANCH}"
+    container_name: app
+    command: "--app"
+    env_file: .env.dev.db
+    restart: unless-stopped
+    tty: true
+    working_dir: /var/www
+    volumes:
+      - app:/var/www
+      - ./app:/var/www/app
+      - ./public:/var/www/public
+      - ./resources:/var/www/resources
+      - ./routes:/var/www/routes
+    depends_on:
+      - cache
+      - database
+    networks:
+      - app-network
+
+  # Redis in-memory caching
+  cache:
+    container_name: cache
+    image: redis:6-alpine
+    command: ["redis-server", "--appendonly", "yes"]
+    ports:
+      - "6379:6379"
+    volumes:
+      - cache:/data
+    networks:
+      - app-network
+
+  # MySQL Service
+  database:
+    image: mysql:8
+    container_name: database
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USERNAME}
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    volumes:
+      - dbdata:/var/lib/mysql/
+    networks:
+      - app-network
+
+# Networks
+networks:
+  app-network:
+    driver: bridge
+
+# Volumes
+volumes:
+  app:
+  cache:
+  dbdata:

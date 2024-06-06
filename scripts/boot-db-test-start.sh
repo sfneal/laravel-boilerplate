@@ -21,9 +21,5 @@ docker compose -f docker-compose-tests.yml build --progress plain
 # Start fresh container instances
 docker compose -f docker-compose-tests.yml up -d
 
-# Artisan Migration
+# Wait for database connection to become available
 docker exec app php artisan db:wait
-docker exec app php artisan migrate --seed
-
-# Run phpunit inside Docker 'app' container
-docker exec app ./vendor/bin/phpunit
