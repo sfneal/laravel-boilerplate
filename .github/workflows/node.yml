@@ -1,4 +1,4 @@
-name: Yarn & Webpacks
+name: Yarn
 
 on:
     push:
@@ -11,7 +11,6 @@ on:
             - '**/package.json'
             - '**/yarn.lock'
             - '**/mix-manifest.json'
-    pull_request:
 
 jobs:
     yarn:
@@ -19,51 +18,17 @@ jobs:
         strategy:
             matrix:
                 os: [ubuntu-latest]
-                node: [16, 17, 18, 19, 20, 21]
+                node: [18, 19, 20, 21]
                 environment: [development, production]
 
         name: Node ${{ matrix.node }} - ${{ matrix.environment }}
 
         steps:
             -   name: Checkout code
-                uses: actions/checkout@v2
-
-            -   name: Setup node
-                uses: actions/setup-node@v2
-                with:
-                    node-version: ${{ matrix.node }}
-                    cache: 'yarn'
-
-            -   name: Install Dependencies
-                run: yarn install
-
-            -   name: Build Webpacks
-                run: yarn run ${{ matrix.environment }}
-
-    webpack:
-        needs: yarn
-        runs-on: ${{ matrix.os }}
-        strategy:
-            matrix:
-                os: [ ubuntu-latest ]
-                node: [ 21 ]
-                environment: [ production ]
-
-        permissions:
-            # Give the default GITHUB_TOKEN write permission to commit and push the
-            # added or changed files to the repository.
-            contents: write
-
-        name: Webpack ${{ matrix.node }} - ${{ matrix.environment }}
-
-        steps:
-            -   name: Checkout code
                 uses: actions/checkout@v4
-                with:
-                    ref: ${{ github.head_ref }}
 
             -   name: Setup node
-                uses: actions/setup-node@v2
+                uses: actions/setup-node@v4
                 with:
                     node-version: ${{ matrix.node }}
                     cache: 'yarn'
@@ -73,9 +38,3 @@ jobs:
 
             -   name: Build Webpacks
                 run: yarn run ${{ matrix.environment }}
-
-            -   uses: stefanzweifel/git-auto-commit-action@v5
-                with:
-                    commit_message: BUMP webpack builds to latest versions
-                    status_options: '--untracked-files=no'
-                    file_pattern: public/mix-manifest.json
