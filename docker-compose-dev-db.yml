@@ -124,7 +124,7 @@ services:
 
   # Certification Bot
   certbot:
-    image: stephenneal/certbot:v11
+    image: stephenneal/certbot:v14
     container_name: certbot
     volumes:
       - certs:/etc/letsencrypt
