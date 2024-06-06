@@ -2,16 +2,13 @@
 
 namespace Tests\Feature;
 
+use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testBasicTest()
+    #[Test]
+    public function basic_test()
     {
         $this->assertTrue(true);
     }
