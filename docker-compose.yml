@@ -31,7 +31,7 @@ services:
 
   # Nginx proxy
   proxy:
-    image: stephenneal/nginx-proxy:1.25-alpine
+    image: stephenneal/nginx-proxy:1.26-alpine
     container_name: proxy
     volumes:
       - certs:/etc/letsencrypt
@@ -49,7 +49,7 @@ services:
 
   # Nginx webserver 
   webserver:
-    image: stephenneal/nginx-laravel:1.25-alpine
+    image: stephenneal/nginx-laravel:1.26-alpine
     container_name: webserver
     restart: unless-stopped
     tty: true
@@ -75,7 +75,7 @@ services:
   # Redis in-memory caching
   cache:
     container_name: cache
-    image: redis:6-alpine
+    image: redis:7-alpine
     command: ["redis-server", "--appendonly", "yes"]
     ports:
       - "6379:6379"
@@ -86,7 +86,7 @@ services:
 
   # Certification Bot
   certbot:
-    image: stephenneal/certbot:v11
+    image: stephenneal/certbot:v14
     container_name: certbot
     volumes:
       - certs:/etc/letsencrypt
@@ -100,7 +100,7 @@ services:
 
   # Docker in Docker
   docker:
-    image: stephenneal/dind:alpine-3.14-v1
+    image: stephenneal/dind:alpine-3
     container_name: docker
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
