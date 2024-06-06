@@ -15,7 +15,7 @@
         "sfneal/healthy": "^2.0",
         "sfneal/laravel-helpers": "^2.4",
         "sfneal/models": "^4.0",
-        "sfneal/view-models": "^4.0",
+        "sfneal/view-models": "^5.1",
         "spatie/laravel-tail": "^4.2"
     },
     "require-dev": {
