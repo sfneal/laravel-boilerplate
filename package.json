@@ -20,7 +20,7 @@
         "resolve-url-loader": ">=2.3.1",
         "rework": "^1.0.1",
         "rework-visit": "^1.0.0",
-        "sass": "^1.77.5",
+        "sass": "^1.77.6",
         "sass-loader": "^14.2.1"
     },
     "devDependencies": {
