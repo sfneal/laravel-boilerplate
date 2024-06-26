@@ -47,7 +47,7 @@ services:
     networks:
       - app-network
 
-  # Nginx webserver 
+  # Nginx webserver
   webserver:
     image: stephenneal/nginx-laravel:1.26-alpine
     container_name: webserver

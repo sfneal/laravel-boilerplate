@@ -16,6 +16,7 @@ COPY ["server.php", "artisan", "phpunit.xml", "README.md", "/var/www/"]
 
 # Copy startup script
 COPY docker/scripts /var/www/scripts/
+RUN chmod +x /var/www/scripts/*.sh
 
 # Copy version & changelog files
 COPY ["version.txt", "/var/www/"]
