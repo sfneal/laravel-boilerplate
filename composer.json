@@ -62,7 +62,8 @@
         "start-dev-db": "sh vendor/sfneal/cruise/scripts/runners/start-dev-db.sh",
         "start-dev-node": "sh vendor/sfneal/cruise/scripts/runners/start-dev-node.sh",
         "start-test": "sh vendor/sfneal/cruise/scripts/runners/start-test.sh",
-        "stop": "sh vendor/sfneal/cruise/scripts/runners/stop.sh"
+        "stop": "sh vendor/sfneal/cruise/scripts/runners/stop.sh",
+        "build": "sh vendor/sfneal/cruise/scripts/runners/build.sh"
     },
     "config": {
         "preferred-install": "dist",
