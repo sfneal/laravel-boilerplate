@@ -12,6 +12,7 @@
         "predis/predis": "^2.0",
         "sfneal/caching": "^4.1",
         "sfneal/controllers": "^3.0",
+        "sfneal/cruise": "^1.2",
         "sfneal/healthy": "^2.0",
         "sfneal/laravel-helpers": "^2.4",
         "sfneal/models": "^4.0",
@@ -57,43 +58,12 @@
         ],
         "test": "docker exec -it app ./vendor/bin/phpunit",
         "test-coverage": "vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover",
-        "boot": "bash scripts/boot.sh",
-        "boot-upgrade": [
-            "composer upgrade-all",
-            "bash scripts/boot.sh"
-        ],
-        "boot-build": "bash scripts/boot.sh build",
-        "boot-db": "bash scripts/boot-db.sh",
-        "boot-node": "bash scripts/boot-node.sh",
-        "boot-prod": [
-            "composer down",
-            "composer build",
-            "docker compose up -d"
-        ],
-        "boot-prod-db": "bash scripts/boot-prod-db.sh",
-        "build": "bash scripts/build.sh prod",
-        "build-dev": "bash scripts/build.sh dev",
-        "boot-db-start": [
-            "Composer\\Config::disableProcessTimeout",
-            "bash scripts/boot-db-start.sh"
-        ],
-        "boot-db-test-start": [
-            "Composer\\Config::disableProcessTimeout",
-            "bash scripts/boot-db-test-start.sh"
-        ],
-        "boot-test": [
-            "Composer\\Config::disableProcessTimeout",
-            "bash scripts/boot-test.sh"
-        ],
-        "boot-db-test": [
-            "Composer\\Config::disableProcessTimeout",
-            "bash scripts/boot-db-test.sh"
-        ],
-        "push": "bash scripts/push.sh",
-        "deploy": "bash scripts/deploy.sh",
-        "down": "docker compose down -v --remove-orphans",
-        "logs": "docker exec -it app tail -f storage/logs/laravel.log",
-        "upgrade-all": "bash scripts/upgrade.sh"
+        "start-dev": "sh vendor/sfneal/cruise/scripts/runners/start-dev.sh",
+        "start-dev-db": "sh vendor/sfneal/cruise/scripts/runners/start-dev-db.sh",
+        "start-dev-node": "sh vendor/sfneal/cruise/scripts/runners/start-dev-node.sh",
+        "start-test": "sh vendor/sfneal/cruise/scripts/runners/start-test.sh",
+        "stop": "sh vendor/sfneal/cruise/scripts/runners/stop.sh",
+        "build": "sh vendor/sfneal/cruise/scripts/runners/build.sh"
     },
     "config": {
         "preferred-install": "dist",

@@ -12,9 +12,9 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                os: [ubuntu-latest]
-                php: [8.3]
-                composer-script: [build, build-dev]
+                os: [ ubuntu-latest ]
+                php: [ 8.3 ]
+                composer-script: [ composer build dev, docker build -t stephenneal/laravel-boilerplate . ]
 
         name: PHP ${{ matrix.php }} - ${{ matrix.composer-script }}
 
@@ -22,5 +22,28 @@ jobs:
             -   name: Checkout code
                 uses: actions/checkout@v4
 
+            -   name: Setup PHP
+                uses: shivammathur/setup-php@v2
+                with:
+                    php-version: ${{ matrix.php }}
+                    coverage: none
+
+            -   name: Get Composer Cache Directory
+                id: composer-cache
+                run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+            -   name: Composer Cache
+                uses: actions/cache@v4
+                with:
+                    path: ${{ steps.composer-cache.outputs.dir }}
+                    key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+                    restore-keys: ${{ runner.os }}-composer-
+
+            -   name: Install composer dependencies
+                run: composer install ${{ matrix.composer-flags }}
+
+            -   name: Authenticate Docker Hub
+                run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login --username "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
             -   name: Build Docker Images
-                run: composer ${{ matrix.composer-script }}
+                run: ${{ matrix.composer-script }}

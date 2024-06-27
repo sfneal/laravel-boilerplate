@@ -1,6 +1,6 @@
 # Base PHP image tags
-ARG php_composer_tag=8.3-v2
-ARG php_laravel_tag=8.3-fpm-v3
+ARG php_composer_tag=8.3-base
+ARG php_laravel_tag=8.3-fpm-base
 ARG node_yarn_tag=v4
 
 
@@ -16,6 +16,7 @@ COPY ["server.php", "artisan", "phpunit.xml", "README.md", "/var/www/"]
 
 # Copy startup script
 COPY docker/scripts /var/www/scripts/
+RUN chmod +x /var/www/scripts/*.sh
 
 # Copy version & changelog files
 COPY ["version.txt", "/var/www/"]

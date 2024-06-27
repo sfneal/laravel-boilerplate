@@ -7,13 +7,11 @@ cd /var/www
 touch /var/www/storage/logs/laravel.log
 touch /var/www/storage/logs/worker.log
 touch /var/www/storage/logs/query.log
-touch /var/www/storage/logs/traffic.log
 
 # Truncate Logs
 truncate -s 0 /var/www/storage/logs/laravel.log
 truncate -s 0 /var/www/storage/logs/worker.log
 truncate -s 0 /var/www/storage/logs/query.log
-truncate -s 0 /var/www/storage/logs/traffic.log
 
 # Set permissions for log storage
 chown -R $USER:www-data /var/www/storage
@@ -23,6 +21,9 @@ chmod -R 775 /var/www/bootstrap/cache
 
 # Clear config and cache
 php artisan env
+
+# Create storage to public directory link
+php artisan storage:link
 
 
 # Parse command arguments

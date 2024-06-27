@@ -5,9 +5,9 @@ list_routes=${2}
 
 # Clean up bootstrap
 if [[ ${chmod} == true ]]; then
-    chown -R www-data:www-data /var/www/storage && \
-        chmod -R 755 /var/www/storage && \
-        chmod -R 777 /var/www/bootstrap/cache
+    chown -R www-data:www-data /var/www/storage
+    chmod -R 755 /var/www/storage
+    chmod -R 777 /var/www/bootstrap/cache
 fi
 
 # Finish composer

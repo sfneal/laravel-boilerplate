@@ -6,7 +6,7 @@ on:
             - master
     pull_request:
     release:
-        types: [published]
+        types: [ published ]
 
 jobs:
     test:
@@ -14,30 +14,51 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                os: [ubuntu-latest]
-                php: [8.3]
-                composer-script: [boot-db-test]
+                os: [ ubuntu-latest ]
+                php: [ 8.3 ]
 
-        name: PHP ${{ matrix.php }} - ${{ matrix.composer-script }}
+        name: PHP ${{ matrix.php }} - Tests
 
         steps:
             -   name: Checkout code
                 uses: actions/checkout@v4
 
+            -   name: Setup PHP
+                uses: shivammathur/setup-php@v2
+                with:
+                    php-version: ${{ matrix.php }}
+                    coverage: none
+
+            -   name: Get Composer Cache Directory
+                id: composer-cache
+                run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+            -   name: Composer Cache
+                uses: actions/cache@v4
+                with:
+                    path: ${{ steps.composer-cache.outputs.dir }}
+                    key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+                    restore-keys: ${{ runner.os }}-composer-
+
+            -   name: Install composer dependencies
+                run: composer install
+
             -   name: Authenticate Docker Hub
                 run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login --username "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
             -   name: Build Docker Images
-                run: docker compose -f docker-compose-dev-db.yml build
+                run: docker compose -f docker-compose-tests.yml build
 
             -   name: Pull Docker Images
                 run: docker compose -f docker-compose-tests.yml pull --ignore-pull-failures
 
             -   name: Start Docker Services
-                run: composer boot-db-test-start
+                run: docker compose -f docker-compose-tests.yml up -d
 
-            -   name: Migrate & seed database
-                run: docker exec app php artisan migrate --seed
+            -   name: Migrate Database
+                run: |
+                    docker exec app php artisan db:wait
+                    docker exec app php artisan migrate --seed
 
-            -   name: Test application
-                run: docker exec app ./vendor/bin/phpunit --testdox
+            -   name: Test Docker Services
+                run: docker exec app ./vendor/bin/phpunit
