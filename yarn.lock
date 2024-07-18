@@ -3346,10 +3346,10 @@ jest-worker@^27.4.5:
     merge-stream "^2.0.0"
     supports-color "^8.0.0"
 
-jquery-migrate@^3.5.0:
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/jquery-migrate/-/jquery-migrate-3.5.0.tgz#e4571b5249f90579b713b497596257a5e7b0a521"
-  integrity sha512-aZYJ6aB/cduyKKSxKrNhmi8uni1viLswP8M/NiV0gOpauBPStO4WNGGX2TJ/fpAXS5SIexvRhtXbiNEk9Tec8g==
+jquery-migrate@^3.5.2:
+  version "3.5.2"
+  resolved "https://registry.yarnpkg.com/jquery-migrate/-/jquery-migrate-3.5.2.tgz#c9631702e1a5c93c5e7a0bbba54b82883c4ac47d"
+  integrity sha512-GGvcVWK3aei2/98r7pA4UkOYvs4xVeCGvquNXADFUp9+Sr6VeOw0ktlQ9z4YlBbEFpsXBlRioAgpH/fLWinj4Q==
 
 jquery-ui@^1.13.3:
   version "1.13.3"
