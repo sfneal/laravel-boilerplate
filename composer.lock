@@ -1123,16 +1123,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v11.18.1",
+            "version": "v11.19.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "b19ba518c56852567e99fbae9321bc436c2cc5a8"
+                "reference": "5e103d499e9ee5bcfc184412d034c4e516b87085"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/b19ba518c56852567e99fbae9321bc436c2cc5a8",
-                "reference": "b19ba518c56852567e99fbae9321bc436c2cc5a8",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/5e103d499e9ee5bcfc184412d034c4e516b87085",
+                "reference": "5e103d499e9ee5bcfc184412d034c4e516b87085",
                 "shasum": ""
             },
             "require": {
@@ -1325,7 +1325,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2024-07-26T10:39:29+00:00"
+            "time": "2024-07-30T15:22:41+00:00"
         },
         {
             "name": "laravel/prompts",
@@ -3253,16 +3253,16 @@
         },
         {
             "name": "sfneal/cruise",
-            "version": "1.2.1",
+            "version": "1.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sfneal/cruise.git",
-                "reference": "9af5b1dfd46aab9ce9535f52cd953384a1408adc"
+                "reference": "8d9b0ceb44a75a8cf37b2a47b1241fc7a5c29afa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sfneal/cruise/zipball/9af5b1dfd46aab9ce9535f52cd953384a1408adc",
-                "reference": "9af5b1dfd46aab9ce9535f52cd953384a1408adc",
+                "url": "https://api.github.com/repos/sfneal/cruise/zipball/8d9b0ceb44a75a8cf37b2a47b1241fc7a5c29afa",
+                "reference": "8d9b0ceb44a75a8cf37b2a47b1241fc7a5c29afa",
                 "shasum": ""
             },
             "require": {
@@ -3306,9 +3306,9 @@
             ],
             "support": {
                 "issues": "https://github.com/sfneal/cruise/issues",
-                "source": "https://github.com/sfneal/cruise/tree/1.2.1"
+                "source": "https://github.com/sfneal/cruise/tree/1.2.4"
             },
-            "time": "2024-06-26T20:21:12+00:00"
+            "time": "2024-07-29T19:07:01+00:00"
         },
         {
             "name": "sfneal/healthy",
