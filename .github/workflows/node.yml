@@ -16,6 +16,7 @@ jobs:
     yarn:
         runs-on: ${{ matrix.os }}
         strategy:
+            fail-fast: false
             matrix:
                 os: [ubuntu-latest]
                 node: [18, 19, 20, 21]
