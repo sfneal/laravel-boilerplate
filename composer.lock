@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "589ad880b92d30c363ad4e3afed10801",
+    "content-hash": "a67f2ec9033568f6ad4ca070d2f90355",
     "packages": [
         {
             "name": "brick/math",
@@ -3258,16 +3258,16 @@
         },
         {
             "name": "sfneal/cruise",
-            "version": "1.2.5",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sfneal/cruise.git",
-                "reference": "5ac88b11623b000bd7e4e04962b2ef1d7e8920c1"
+                "reference": "177324d3aa317cd39c0fe3c9f23d92354e051507"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sfneal/cruise/zipball/5ac88b11623b000bd7e4e04962b2ef1d7e8920c1",
-                "reference": "5ac88b11623b000bd7e4e04962b2ef1d7e8920c1",
+                "url": "https://api.github.com/repos/sfneal/cruise/zipball/177324d3aa317cd39c0fe3c9f23d92354e051507",
+                "reference": "177324d3aa317cd39c0fe3c9f23d92354e051507",
                 "shasum": ""
             },
             "require": {
@@ -3303,7 +3303,7 @@
                     "role": "Developer"
                 }
             ],
-            "description": "Boilerplate for PHP package repo's",
+            "description": "Cruise is a Laravel Sail inspired CLI for managing Docker services",
             "homepage": "https://github.com/sfneal/cruise",
             "keywords": [
                 "cruise",
@@ -3311,9 +3311,9 @@
             ],
             "support": {
                 "issues": "https://github.com/sfneal/cruise/issues",
-                "source": "https://github.com/sfneal/cruise/tree/1.2.5"
+                "source": "https://github.com/sfneal/cruise/tree/2.0.0"
             },
-            "time": "2024-09-09T19:03:14+00:00"
+            "time": "2024-10-02T19:50:12+00:00"
         },
         {
             "name": "sfneal/healthy",
