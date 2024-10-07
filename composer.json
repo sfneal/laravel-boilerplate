@@ -12,7 +12,7 @@
         "predis/predis": "^2.0",
         "sfneal/caching": "^4.1",
         "sfneal/controllers": "^3.0",
-        "sfneal/cruise": "^1.2",
+        "sfneal/cruise": "^2.0",
         "sfneal/healthy": "^2.0",
         "sfneal/laravel-helpers": "^2.4",
         "sfneal/models": "^4.0",
