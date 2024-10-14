@@ -3262,21 +3262,21 @@
         },
         {
             "name": "sfneal/cruise",
-            "version": "2.0.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sfneal/cruise.git",
-                "reference": "177324d3aa317cd39c0fe3c9f23d92354e051507"
+                "reference": "236d48b2d1c5006fe7e6ffa8b4f19d199b39bce6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sfneal/cruise/zipball/177324d3aa317cd39c0fe3c9f23d92354e051507",
-                "reference": "177324d3aa317cd39c0fe3c9f23d92354e051507",
+                "url": "https://api.github.com/repos/sfneal/cruise/zipball/236d48b2d1c5006fe7e6ffa8b4f19d199b39bce6",
+                "reference": "236d48b2d1c5006fe7e6ffa8b4f19d199b39bce6",
                 "shasum": ""
             },
             "require": {
+                "laravel/framework": "^11.0",
                 "php": "^8.2|^8.3",
-                "sfneal/laravel-helpers": "^2.4",
                 "symfony/process": "^6.0|^7.0"
             },
             "require-dev": {
@@ -3315,9 +3315,9 @@
             ],
             "support": {
                 "issues": "https://github.com/sfneal/cruise/issues",
-                "source": "https://github.com/sfneal/cruise/tree/2.0.0"
+                "source": "https://github.com/sfneal/cruise/tree/2.1.1"
             },
-            "time": "2024-10-02T19:50:12+00:00"
+            "time": "2024-10-08T16:26:03+00:00"
         },
         {
             "name": "sfneal/healthy",
