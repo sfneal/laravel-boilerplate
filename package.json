@@ -9,7 +9,7 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^6.6.0",
         "axios": ">=1.7",
-        "bootstrap": "^4.0.0",
+        "bootstrap": "^5.3.3",
         "cross-env": ">=5.1",
         "jquery": "^3.2",
         "jquery-migrate": "^3.5.2",
