@@ -13,7 +13,7 @@
         "cross-env": ">=5.1",
         "jquery": "^3.2",
         "jquery-migrate": "^3.5.2",
-        "jquery-ui": "^1.14.0",
+        "jquery-ui": "^1.14.1",
         "laravel-mix": "^6.0",
         "lodash": "^4.17.5",
         "popper.js": "^1.12",
