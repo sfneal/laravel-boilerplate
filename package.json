@@ -21,7 +21,7 @@
         "rework": "^1.0.1",
         "rework-visit": "^1.0.0",
         "sass": "^1.81.0",
-        "sass-loader": "^16.0.3"
+        "sass-loader": "^16.0.4"
     },
     "devDependencies": {
         "laravel-mix-purgecss": "^6.0.0",
