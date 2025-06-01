@@ -9,7 +9,7 @@
         "filp/whoops": "^2.3",
         "guzzlehttp/guzzle": "^7.0",
         "laravel/framework": "^9.0|^10.0|^11.0",
-        "predis/predis": "^2.0",
+        "predis/predis": "^3.0",
         "sfneal/caching": "^4.1",
         "sfneal/controllers": "^3.0",
         "sfneal/cruise": "^2.0",
