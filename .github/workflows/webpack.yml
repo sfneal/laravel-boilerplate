@@ -64,7 +64,7 @@ jobs:
             -   name: Build Webpacks
                 run: yarn run ${{ matrix.environment }}
 
-            -   uses: stefanzweifel/git-auto-commit-action@v5
+            -   uses: stefanzweifel/git-auto-commit-action@v6
                 with:
                     commit_message: BUMP webpack builds to latest versions
                     status_options: '--untracked-files=no'
