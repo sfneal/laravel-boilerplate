@@ -15,7 +15,7 @@
         "jquery-migrate": "^3.5.2",
         "jquery-ui": "^1.14.1",
         "laravel-mix": "^6.0",
-        "lodash": "^4.17.5",
+        "lodash": "^4.17.23",
         "popper.js": "^1.12",
         "resolve-url-loader": ">=2.3.1",
         "rework": "^1.0.1",
